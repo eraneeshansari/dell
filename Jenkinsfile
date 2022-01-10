@@ -18,7 +18,7 @@ pipeline{
       stage("Deploy to K8s"){
             steps{
 		  sh "chmod +x changetag.sh"
-		  sh "./changetag.sh ${DOCKER_TAG}"
+		  sh "./changetag.sh ${BUILD_ID}"
 		  sshagent(['sshk8s']){
 		    sh "scp -o StrictHostKeyChecking=no depl.yaml ec2-user@3.109.213.160:/home/ec2-user/"
 			script{
