@@ -15,6 +15,14 @@ pipeline{
          }
        }
 
+      stage("Deploy to K8s"){
+        steps{
+          sh "kubectl create -f depl.yaml" 
+        }
+
+     }
+
+
 
 
   }
