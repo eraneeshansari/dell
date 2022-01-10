@@ -17,7 +17,11 @@ pipeline{
 
       stage("Deploy to K8s"){
         steps{
-          sh "kubectl create -f depl.yaml" 
+          sshagent(['sshk8s']) {
+             sh "sudo su -"
+             sh "kubectl create -f depl.yaml"
+          } 
+         
         }
 
      }
