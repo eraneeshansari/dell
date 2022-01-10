@@ -19,7 +19,7 @@ pipeline{
         steps{
           sshagent(['sshk8s']) {
              
-             sh "ssh ec2-user@3.109.213.160 kubectl create -f depl.yaml"
+             sh "ssh -vT -o "StrictHostKeyChecking=no" ec2-user@3.109.213.160 kubectl create -f depl.yaml"
           } 
          
         }
