@@ -15,7 +15,7 @@ spec:
         app: mydep
     spec:
       containers:
-      - image: 966145/mydellapp:11
+      - image: 966145/mydellapp:tagVersion
         name: mydellapp
         ports:
         - containerPort: 80
