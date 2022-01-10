@@ -20,7 +20,7 @@ pipeline{
 		  sh "chmod +x changetag.sh"
 		  sh "./changetag.sh ${BUILD_ID}"
 		  sshagent(['sshk8s']){
-		    sh "scp -o StrictHostKeyChecking=no depl.yaml ec2-user@3.109.213.160:/home/ec2-user/"
+		    sh "scp -o StrictHostKeyChecking=no mydep.yaml ec2-user@3.109.213.160:/home/ec2-user/"
 			script{
 			    try{
 				  sh "ssh ec2-user@3.109.213.160 kubectl apply -f ."				 
